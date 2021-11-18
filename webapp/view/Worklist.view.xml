@@ -42,6 +42,11 @@
 							text="{worklistView>/worklistTableTitle}"
 							level="H3"/>
 						<ToolbarSpacer />
+						<Toolbar>
+				<ToolbarSpacer/>
+					<Button text="Connect Wallet" press=".onWalletConnect" />
+				<ToolbarSpacer/>
+			</Toolbar>
 						<SearchField
 							id="searchField"
 							tooltip="{i18n>worklistSearchTooltip}"
@@ -59,6 +64,9 @@
 					<Column id="nameColumn">
 						<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
 					</Column>
+					<Column id="shipnameColumn">
+						<Text text="{i18n>tableShipNameColumnTitle}" id="shipnameColumnTitle"/>
+					</Column>
 					<Column id="unitNumberColumn" hAlign="End">
 						<Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
 					</Column>
@@ -72,9 +80,24 @@
 							<ObjectIdentifier
 								title="{OrderID}"/>
 							<ObjectNumber
+								title="{ShipName}"/>
+							<ObjectNumber
 								number="{
 									path: 'OrderID',
 									formatter: '.formatter.numberUnit'
+								}"
+								unit="{}"/>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem
+						type="Navigation"
+						press=".onPress">
+						<cells>
+							<ObjectIdentifier
+								title="{ShipName}"/>
+							<ObjectNumber
+								number="{
+									path: 'CustomerID'
 								}"
 								unit="{}"/>
 						</cells>
@@ -86,9 +109,6 @@
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
-		
-
 
 	</semantic:SemanticPage>
 

@@ -132,7 +132,7 @@ sap.ui.define([
 		//Event handler for connecting the wallet to the dApp
 		onWalletConnect : function () {
 			console.log("wallet connected!");
-		}
+		},
 
 		/* =========================================================== */
 		/* internal methods                                            */
